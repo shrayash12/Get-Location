@@ -12,5 +12,9 @@
         android:id="@+id/btn"
         android:layout_centerInParent="true"
         android:text="GET LOCATION" />
+    <EditText
+        android:id="@+id/ed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
 </RelativeLayout>

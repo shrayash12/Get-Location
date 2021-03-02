@@ -13,6 +13,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.javapapers.android.geolocationfinder.R;
 
 import java.util.ArrayList;
@@ -26,9 +28,11 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList permissionsToRequest;
     private ArrayList permissionsRejected = new ArrayList();
     private ArrayList permissions = new ArrayList();
+    private FirebaseDatabase mDatabase;
+    LocationTrack locationTrack;
+
 
     private final static int ALL_PERMISSIONS_RESULT = 101;
-    LocationTrack locationTrack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -152,10 +156,21 @@ public class MainActivity extends AppCompatActivity {
                 .show();
     }
 
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
         locationTrack.stopListener();
     }
-}
 
+    private void saveLatLonToFireBase() {
+        if (locationTrack != null) {
+            DatabaseReference mDatabase;
+            mDatabase = FirebaseDatabase.getInstance().getReference();
+            mDatabase.child("Location").child("Lat").setValue(locationTrack.latitude);
+
+        }
+
+    }
+
+}
