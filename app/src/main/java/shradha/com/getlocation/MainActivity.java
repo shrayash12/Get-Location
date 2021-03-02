@@ -23,15 +23,11 @@ import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 
 public class MainActivity extends AppCompatActivity {
-
-
     private ArrayList permissionsToRequest;
     private ArrayList permissionsRejected = new ArrayList();
     private ArrayList permissions = new ArrayList();
     private FirebaseDatabase mDatabase;
     LocationTrack locationTrack;
-
-
     private final static int ALL_PERMISSIONS_RESULT = 101;
 
     @Override
@@ -41,33 +37,22 @@ public class MainActivity extends AppCompatActivity {
 
         permissions.add(ACCESS_FINE_LOCATION);
         permissions.add(ACCESS_COARSE_LOCATION);
-
         permissionsToRequest = findUnAskedPermissions(permissions);
         //get the permissions we have asked for before but are not granted..
         //we will store this in a global list to access later.
 
-
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-
-
             if (permissionsToRequest.size() > 0)
                 requestPermissions((String[]) permissionsToRequest.toArray(new String[permissionsToRequest.size()]), ALL_PERMISSIONS_RESULT);
         }
-
-
         Button btn = (Button) findViewById(R.id.btn);
-
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 locationTrack = new LocationTrack(MainActivity.this);
-
-
                 if (locationTrack.canGetLocation()) {
-
-
                     double longitude = locationTrack.getLongitude();
                     double latitude = locationTrack.getLatitude();
 
@@ -108,7 +93,6 @@ public class MainActivity extends AppCompatActivity {
         return (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP_MR1);
     }
 
-
     @TargetApi(Build.VERSION_CODES.M)
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
@@ -121,10 +105,7 @@ public class MainActivity extends AppCompatActivity {
                         permissionsRejected.add(perms);
                     }
                 }
-
                 if (permissionsRejected.size() > 0) {
-
-
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                         if (shouldShowRequestPermissionRationale((String) permissionsRejected.get(0))) {
                             showMessageOKCancel("These permissions are mandatory for the application. Please allow access.",
@@ -156,7 +137,6 @@ public class MainActivity extends AppCompatActivity {
                 .show();
     }
 
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -168,7 +148,6 @@ public class MainActivity extends AppCompatActivity {
             DatabaseReference mDatabase;
             mDatabase = FirebaseDatabase.getInstance().getReference();
             mDatabase.child("Location").child("Lat").setValue(locationTrack.latitude);
-
         }
 
     }
