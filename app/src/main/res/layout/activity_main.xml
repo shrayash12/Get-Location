@@ -7,9 +7,18 @@
 
 
     <Button
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btn"
+        android:layout_centerInParent="true"
+        android:text="SAVE LOCATION" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn2"
+        android:layout_below="@+id/btn"
         android:layout_centerInParent="true"
         android:text="GET LOCATION" />
     <EditText

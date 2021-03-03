@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "776459348758",
+    "project_id": "getlocation-af538",
+    "storage_bucket": "getlocation-af538.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:776459348758:android:60c741b483b9675da8fe37",
+        "android_client_info": {
+          "package_name": "shradha.com.getlocation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "776459348758-qebsmv6fuq6mnk0arnohifib8eeiblb5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "shradha.com.getlocation",
+            "certificate_hash": "d275dd777a0a7172a8e7a03ab9e6e6c96f08077c"
+          }
+        },
+        {
+          "client_id": "776459348758-oo3p771tooo0elhkhqglrle5ftn7eeve.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAogU2VyZCgdOPp3XOy2xBmZgkK10f3tTY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "776459348758-oo3p771tooo0elhkhqglrle5ftn7eeve.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
