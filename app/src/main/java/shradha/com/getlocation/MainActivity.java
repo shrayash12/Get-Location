@@ -1,6 +1,5 @@
 package shradha.com.getlocation;
 
-
 import android.annotation.TargetApi;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
@@ -49,9 +48,7 @@ public class MainActivity extends AppCompatActivity {
                 requestPermissions((String[]) permissionsToRequest.toArray(new String[permissionsToRequest.size()]), ALL_PERMISSIONS_RESULT);
         }
         Button btn = (Button) findViewById(R.id.btn);
-
-
-        Button btnGet =  findViewById(R.id.btn2);
+        Button btnGet = findViewById(R.id.btn2);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("message");
         btnGet.setOnClickListener(new View.OnClickListener() {
@@ -85,21 +82,16 @@ public class MainActivity extends AppCompatActivity {
                     double latitude = locationTrack.getLatitude();
 
                     Toast.makeText(getApplicationContext(), "Longitude:" + Double.toString(longitude) + "\nLatitude:" + Double.toString(latitude), Toast.LENGTH_SHORT).show();
-
                     // Write a message to the database
-
-
-                    myRef.setValue( Double.toString(longitude) + Double.toString(latitude));
+                    myRef.setValue(Double.toString(longitude) + Double.toString(latitude));
                 } else {
 
                     locationTrack.showSettingsAlert();
                 }
-
             }
         });
 
     }
-
 
     private ArrayList findUnAskedPermissions(ArrayList wanted) {
         ArrayList result = new ArrayList();
@@ -109,7 +101,6 @@ public class MainActivity extends AppCompatActivity {
                 result.add(perm);
             }
         }
-
         return result;
     }
 
@@ -153,12 +144,10 @@ public class MainActivity extends AppCompatActivity {
                             return;
                         }
                     }
-
                 }
 
                 break;
         }
-
     }
 
     private void showMessageOKCancel(String message, DialogInterface.OnClickListener okListener) {
@@ -182,7 +171,5 @@ public class MainActivity extends AppCompatActivity {
             mDatabase = FirebaseDatabase.getInstance().getReference();
             mDatabase.child("Location").child("Lat").setValue(locationTrack.latitude);
         }
-
     }
-
 }

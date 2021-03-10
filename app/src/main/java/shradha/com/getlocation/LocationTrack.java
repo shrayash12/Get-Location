@@ -180,6 +180,7 @@ public class LocationTrack extends Service implements LocationListener {
 
     @Override
     public void onProviderEnabled(String s) {
+
     }
 
     @Override
